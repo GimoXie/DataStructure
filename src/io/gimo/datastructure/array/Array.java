@@ -103,7 +103,7 @@ public class Array<E> {
      * 删除第一个元素 并返回之
      */
     public E removeFirst() {
-       return remove(0);
+        return remove(0);
     }
 
     /**
@@ -149,6 +149,20 @@ public class Array<E> {
             throw new IllegalArgumentException("Get failed. Require index >= 0 and index <= size.");
         }
         return data[index];
+    }
+
+    /**
+     * 获取第一个元素
+     */
+    public E getFirst() {
+        return get(0);
+    }
+
+    /**
+     * 获取最后一个元素
+     */
+    public E getLast() {
+        return get(getSize() - 1);
     }
 
     /**
