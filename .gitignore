@@ -1,0 +1,25 @@
+##class file##
+*.com  
+*.class  
+*.dll  
+*.exe  
+*.o  
+*.so
+*.iml
+*.orig
+*.war
+*.MF
+*.suo
+
+##ignore this file##
+target
+__ConfigTemp
+.classpath
+.project
+.settings
+.idea
+out
+    
+##filter databfile##
+*.mdb  
+*.ldb
