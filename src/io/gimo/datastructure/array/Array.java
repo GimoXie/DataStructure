@@ -50,7 +50,7 @@ public class Array<E> {
             throw new IllegalArgumentException("Add failed. Require index >= 0 and index <= size.");
         }
         // 指针越界 触发扩容
-        if (index == size) {
+        if (size == data.length) {
             resize(size * 2);
         }
         // 从 size-1 开始 每个元素向后移动一个位置
