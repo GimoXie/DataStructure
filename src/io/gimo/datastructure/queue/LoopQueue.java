@@ -85,6 +85,16 @@ public class LoopQueue<E> implements Queue<E> {
             }
         }
         res.append("] tail");
+        res.append("\n");
+        res.append("real process:");
+        res.append("[");
+        for (int i = 0 ; i < data.length ; i ++) {
+            res.append(data[i]);
+            if((i + 1) == data.length) {
+                res.append(", ");
+            }
+        }
+        res.append("]");
         return res.toString();
     }
 }
