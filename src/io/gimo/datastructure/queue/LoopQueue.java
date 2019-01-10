@@ -74,17 +74,16 @@ public class LoopQueue<E> implements Queue<E> {
     }
 
     @Override
-    public String toString() {
+    public String toString(){
         StringBuilder res = new StringBuilder();
-        res.append(String.format("LoopQueue: size = %d , capacity = %d\n", size, getCapacity()));
-        res.append('[');
-        for (int i = front; i != tail; i = (i + 1) % data.length) {
+        res.append(String.format("Queue: size = %d , capacity = %d\n", size, getCapacity()));
+        res.append("front [");
+        for(int i = front ; i != tail ; i = (i + 1) % data.length){
             res.append(data[i]);
-            if ((i + 1) % data.length != tail) {
+            if((i + 1) % data.length != tail)
                 res.append(", ");
-            }
         }
-        res.append(']');
+        res.append("] tail");
         return res.toString();
     }
 }
