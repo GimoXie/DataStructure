@@ -4,9 +4,14 @@ package io.gimo.datastructure.array;
  * Created by zmxie on 2019/1/3.
  */
 public class Array<E> {
-    // 实际存储数据的数组
+    /**
+     * 际存储数据的数组
+     */
     private E[] data;
-    // 数组当前大小(指针位置)
+
+    /**
+     * 数组当前大小(指针位置)
+     */
     private int size;
 
     /**
@@ -54,7 +59,10 @@ public class Array<E> {
             resize(size * 2);
         }
         // 从 size-1 开始 每个元素向后移动一个位置
-        System.arraycopy(data, index, data, index + 1, size - index);
+        // System.arraycopy(data, index, data, index + 1, size - index);
+        for (int i = size - 1; i >= index; i--) {
+            data[i + 1] = data[i];
+        }
         data[index] = element;
         size++;
     }
@@ -88,7 +96,10 @@ public class Array<E> {
         }
         E element = data[index];
         // 从 index+1 开始 每个元素向前移动一个位置
-        System.arraycopy(data, index + 1, data, index + 1 - 1, size - (index + 1));
+        // System.arraycopy(data, index + 1, data, index + 1 - 1, size - (index + 1));
+        for (int i = index + 1 ; i < size -1 ; i++) {
+            data[i - 1] = data[i];
+        }
         size--;
         data[size] = null;
 
@@ -187,7 +198,11 @@ public class Array<E> {
     @SuppressWarnings("unchecked")
     private void resize(int capacity) {
         E[] temp = (E[]) new Object[capacity];
-        System.arraycopy(data, 0, temp, 0, size);
+        // 将原数组中的元素复制到临时数组中
+        // System.arraycopy(data, 0, temp, 0, size);
+        for (int i = 0 ;  i < size; i ++) {
+            temp[i] = data[i];
+        }
         data = temp;
     }
 

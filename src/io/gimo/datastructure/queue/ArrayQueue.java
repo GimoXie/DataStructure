@@ -1,15 +1,11 @@
-package io.gimo.datastructure.stack;
+package io.gimo.datastructure.queue;
 
 import io.gimo.datastructure.array.Array;
 
-/**
- * Created by zmxie on 2019/1/3.
- */
-public class ArrayStack<E> implements Stack<E> {
-
+public class ArrayQueue<E> implements Queue<E> {
     private Array<E> array;
 
-    public ArrayStack(int capacity) {
+    public ArrayQueue(int capacity) {
         this.array = new Array<>(capacity);
     }
 
@@ -24,17 +20,17 @@ public class ArrayStack<E> implements Stack<E> {
     }
 
     @Override
-    public void push(E element) {
-        array.addLast(element);
+    public void enqueue(E e) {
+        array.addLast(e);
     }
 
     @Override
-    public E pop() {
-        return array.removeLast();
+    public E dequeue() {
+        return array.removeFirst();
     }
 
     @Override
-    public E peek() {
-        return array.getLast();
+    public E getFront() {
+        return array.getFirst();
     }
 }
