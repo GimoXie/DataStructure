@@ -1,7 +1,7 @@
 package io.gimo.datastructure.array;
 
 /**
- * Created by zmxie on 2019/1/4.
+ * Created by gimo on 2019/1/4.
  */
 public class Client {
     public static void main(String[] args) {

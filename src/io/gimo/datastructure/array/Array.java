@@ -5,7 +5,7 @@ package io.gimo.datastructure.array;
  * 线性结构 内存上是连续的
  * 通过数组下标进行随机访问元素很快
  * 插入和删除比较麻烦 需要进行元素移动
- * Created by zmxie on 2019/1/3.
+ * Created by gimo on 2019/1/3.
  */
 public class Array<E> {
     /**

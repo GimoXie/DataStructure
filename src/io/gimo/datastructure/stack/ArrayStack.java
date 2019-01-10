@@ -5,7 +5,7 @@ import io.gimo.datastructure.array.Array;
 /**
  * 数组实现的栈
  * 特点：FILO（First In Last Out）先进后出
- * Created by zmxie on 2019/1/3.
+ * Created by gimo on 2019/1/3.
  */
 public class ArrayStack<E> implements Stack<E> {
 

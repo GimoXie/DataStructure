@@ -1,7 +1,7 @@
 package io.gimo.datastructure.stack;
 
 /**
- * Created by zmxie on 2019/1/3.
+ * Created by gimo on 2019/1/3.
  */
 public interface Stack<E> {
     /**
