@@ -2,8 +2,17 @@ package io.gimo.datastructure.queue;
 
 import io.gimo.datastructure.array.Array;
 
+/**
+ * 数组实现的队列
+ * 特点：FIFO（First In First Out）先进先出
+ * @param <E>
+ */
 public class ArrayQueue<E> implements Queue<E> {
     private Array<E> array;
+
+    public ArrayQueue() {
+        this(10);
+    }
 
     public ArrayQueue(int capacity) {
         this.array = new Array<>(capacity);

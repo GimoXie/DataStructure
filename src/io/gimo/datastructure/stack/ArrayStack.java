@@ -3,11 +3,17 @@ package io.gimo.datastructure.stack;
 import io.gimo.datastructure.array.Array;
 
 /**
+ * 数组实现的栈
+ * 特点：FILO（First In Last Out）先进后出
  * Created by zmxie on 2019/1/3.
  */
 public class ArrayStack<E> implements Stack<E> {
 
     private Array<E> array;
+
+    public ArrayStack() {
+        this(10);
+    }
 
     public ArrayStack(int capacity) {
         this.array = new Array<>(capacity);

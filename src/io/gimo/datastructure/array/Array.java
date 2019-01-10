@@ -1,6 +1,10 @@
 package io.gimo.datastructure.array;
 
 /**
+ * 数组
+ * 线性结构 内存上是连续的
+ * 通过数组下标进行随机访问元素很快
+ * 插入和删除比较麻烦 需要进行元素移动
  * Created by zmxie on 2019/1/3.
  */
 public class Array<E> {
@@ -55,7 +59,7 @@ public class Array<E> {
             throw new IllegalArgumentException("Add failed. Require index >= 0 and index <= size.");
         }
         // 指针越界 触发扩容
-        if (size == data.length) {
+        if (size == getCapacity()) {
             resize(size * 2);
         }
         // 从 size-1 开始 每个元素向后移动一个位置
@@ -103,9 +107,9 @@ public class Array<E> {
         size--;
         data[size] = null;
 
-        // 如果当前数组大小为容积的1/4，并且容积大于1
-        if (size == data.length / 4 && data.length / 2 != 0) {
-            resize(data.length / 2);
+        // 如果当前数组大小为容积的1/4，并且容积不是0
+        if (size == getCapacity() / 4 && getCapacity() / 2 != 0) {
+            resize(getCapacity() / 2);
         }
         return element;
     }
@@ -209,7 +213,7 @@ public class Array<E> {
     @Override
     public String toString() {
         StringBuilder res = new StringBuilder();
-        res.append(String.format("Array: size = %d , capacity = %d\n", size, data.length));
+        res.append(String.format("Array: size = %d , capacity = %d\n", size, getCapacity()));
         res.append('[');
         for (int i = 0; i < size; i++) {
             res.append(data[i]);
