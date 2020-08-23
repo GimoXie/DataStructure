@@ -54,7 +54,7 @@ public class Array<E> {
      * @param index   插入的位置(以0开始)
      * @param element 插入的元素
      */
-    public void add(int index, E element) {
+    public void add(E element, int index) {
         if (index < 0 || index > size) {
             throw new IllegalArgumentException("Add failed. Require index >= 0 and index <= size.");
         }
@@ -77,7 +77,7 @@ public class Array<E> {
      * @param element 插入的元素
      */
     public void addFirst(E element) {
-        add(0, element);
+        add(element, 0);
     }
 
     /**
@@ -86,7 +86,7 @@ public class Array<E> {
      * @param element 插入的元素
      */
     public void addLast(E element) {
-        add(size, element);
+        add(element, size);
     }
 
     /**
@@ -101,7 +101,7 @@ public class Array<E> {
         E element = data[index];
         // 从 index+1 开始 每个元素向前移动一个位置
         // System.arraycopy(data, index + 1, data, index + 1 - 1, size - (index + 1));
-        for (int i = index + 1 ; i < size -1 ; i++) {
+        for (int i = index + 1; i < size - 1; i++) {
             data[i - 1] = data[i];
         }
         size--;
@@ -204,7 +204,7 @@ public class Array<E> {
         E[] temp = (E[]) new Object[capacity];
         // 将原数组中的元素复制到临时数组中
         // System.arraycopy(data, 0, temp, 0, size);
-        for (int i = 0 ;  i < size; i ++) {
+        for (int i = 0; i < size; i++) {
             temp[i] = data[i];
         }
         data = temp;
