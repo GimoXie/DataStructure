@@ -79,9 +79,17 @@ public class LinkedList<E> implements List<E> {
         }
     }
 
+    /*public Node recursiveRemove(Node head, E e) {
+        if (head == null) {
+            return null;
+        }
+        head.next = recursiveRemove(head.next, e);
+        return head.e.equals(e) ? head.next : head;
+    }*/
+
     @Override
     public void remove(int index) {
-        if (index <0 || index >= size) {
+        if (index < 0 || index >= size) {
             throw new IllegalArgumentException("Remove failed. Require index >= 0 and index < size.");
         }
         Node cur = dummyHead;
@@ -91,13 +99,13 @@ public class LinkedList<E> implements List<E> {
         Node target = cur.next;
         cur.next = target.next;
         target.next = null;
-        size --;
+        size--;
     }
 
     @Override
     public int find(E e) {
         Node cur = dummyHead;
-        for (int i = 0 ; i < size ; i++) {
+        for (int i = 0; i < size; i++) {
             if (cur.next != null) {
                 cur = cur.next;
                 if (cur.e.equals(e)) {
@@ -110,11 +118,11 @@ public class LinkedList<E> implements List<E> {
 
     @Override
     public E get(int index) {
-        if (index <0 || index >= size) {
+        if (index < 0 || index >= size) {
             throw new IllegalArgumentException("Remove failed. Require index >= 0 and index < size.");
         }
         Node cur = dummyHead;
-        for (int i = 0 ; i <= index ; i ++) {
+        for (int i = 0; i <= index; i++) {
             cur = cur.next;
         }
         return cur.e;
@@ -128,7 +136,7 @@ public class LinkedList<E> implements List<E> {
         Node prev = dummyHead;
         for (int i = 0; i < size; i++) {
             prev = prev.next;
-            res.append(prev);
+            res.append(prev.e);
             if (i != size - 1) {
                 res.append(", ");
             }
@@ -137,16 +145,55 @@ public class LinkedList<E> implements List<E> {
         return res.toString();
     }
 
+    // 迭代法反转
+    public void reverse() {
+        Node prev = null, next;
+        Node cur = dummyHead.next;
+        while (cur != null) {
+            // 暂存后续节点信息
+            next = cur.next;
+            // 将当前节点的后继反转
+            cur.next = prev;
+            // 移动prev指针
+            prev = cur;
+            // 移动cur指针
+            cur = next;
+        }
+        dummyHead.next = prev;
+    }
+
+    public void recursiveReverse() {
+        dummyHead.next = reverse(dummyHead.next);
+    }
+
+    public Node reverse(Node head) {
+        if (null == head ||null  == head.next) {
+            return head;
+        }
+        // 暂存后续节点信息
+        Node next = head.next;
+        // 反转自链表
+        Node newHead = reverse(next);
+        // 将当前节点的后继反转
+        next.next = head;
+        // 切断原先的指针
+        head.next = null;
+        return newHead;
+    }
+
     public static void main(String[] args) {
-        List<Integer> list = new LinkedList<>();
-        list.add(0,0);
-        list.add(1,1);
-        list.add(2,2);
-        list.add(3,3);
-        list.add(4,4);
-        list.add(5,5);
-        list.add(6,6);
-        System.out.println(list.find(6));
-        System.out.println(list.get(3));
+        LinkedList<Integer> list = new LinkedList<>();
+        list.add(0, 0);
+        list.add(1, 1);
+        list.add(2, 2);
+        list.add(3, 3);
+        list.add(4, 4);
+        list.add(5, 5);
+        list.add(6, 6);
+        System.out.println(list);
+        list.reverse();
+        System.out.println(list);
+        list.recursiveReverse();
+        System.out.println(list);
     }
 }
