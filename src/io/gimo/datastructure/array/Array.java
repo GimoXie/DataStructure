@@ -96,7 +96,7 @@ public class Array<E> {
      */
     public E remove(int index) {
         if (index < 0 || index >= size) {
-            throw new IllegalArgumentException("Remove failed. Require index >= 0 and index <= size.");
+            throw new IllegalArgumentException("Remove failed. Require index >= 0 and index < size.");
         }
         E element = data[index];
         // 从 index+1 开始 每个元素向前移动一个位置
@@ -149,7 +149,7 @@ public class Array<E> {
      */
     public void set(int index, E element) {
         if (index < 0 || index >= size) {
-            throw new IllegalArgumentException("Set failed. Require index >= 0 and index <= size.");
+            throw new IllegalArgumentException("Set failed. Require index >= 0 and index < size.");
         }
         data[index] = element;
     }
@@ -161,7 +161,7 @@ public class Array<E> {
      */
     public E get(int index) {
         if (index < 0 || index >= size) {
-            throw new IllegalArgumentException("Get failed. Require index >= 0 and index <= size.");
+            throw new IllegalArgumentException("Get failed. Require index >= 0 and index < size.");
         }
         return data[index];
     }
