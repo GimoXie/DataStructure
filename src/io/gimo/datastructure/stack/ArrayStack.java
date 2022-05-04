@@ -9,7 +9,7 @@ import io.gimo.datastructure.array.Array;
  */
 public class ArrayStack<E> implements Stack<E> {
 
-    private Array<E> array;
+    private final Array<E> array;
 
     public ArrayStack() {
         this(10);

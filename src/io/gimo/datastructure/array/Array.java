@@ -42,7 +42,7 @@ public class Array<E> {
     }
 
     /**
-     * 获取数组的容积
+     * 获取数组的容量
      */
     public int getCapacity() {
         return data.length;
@@ -152,6 +152,15 @@ public class Array<E> {
             throw new IllegalArgumentException("Set failed. Require index >= 0 and index < size.");
         }
         data[index] = element;
+    }
+
+    public void swap(int i, int j) {
+        if (i < 0 || i >= size || j < 0 || j >= size) {
+            throw new IllegalArgumentException("Swap failed. Require both i & j large than 0 and less than size.");
+        }
+        E temp = data[i];
+        data[i] = data[j];
+        data[j] = temp;
     }
 
     /**

@@ -8,7 +8,7 @@ import io.gimo.datastructure.array.Array;
  * @param <E>
  */
 public class ArrayQueue<E> implements Queue<E> {
-    private Array<E> array;
+    private final Array<E> array;
 
     public ArrayQueue() {
         this(10);

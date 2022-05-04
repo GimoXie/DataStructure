@@ -4,7 +4,11 @@ import io.gimo.datastructure.array.Array;
 
 public class ArrayList<E> implements List<E> {
 
-    private Array<E> array;
+    private final Array<E> array;
+
+    public ArrayList(int capacity) {
+        this.array = new Array<>(capacity);
+    }
 
     @Override
     public int getSize() {

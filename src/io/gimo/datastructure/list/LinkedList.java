@@ -2,7 +2,7 @@ package io.gimo.datastructure.list;
 
 public class LinkedList<E> implements List<E> {
 
-    private Node dummyHead;
+    private final Node dummyHead;
     private int size;
 
     private class Node {
