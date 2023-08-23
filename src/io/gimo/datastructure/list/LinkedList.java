@@ -167,7 +167,7 @@ public class LinkedList<E> implements List<E> {
     }
 
     public Node reverse(Node head) {
-        if (null == head ||null  == head.next) {
+        if (null == head || null == head.next) {
             return head;
         }
         // 暂存后续节点信息
