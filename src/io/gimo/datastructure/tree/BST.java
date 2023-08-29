@@ -1,5 +1,7 @@
 package io.gimo.datastructure.tree;
 
+import java.util.ArrayDeque;
+import java.util.Queue;
 import java.util.Stack;
 
 /**
@@ -72,6 +74,7 @@ public class BST<E extends Comparable<E>> {
         preOrder(root);
     }
 
+    // 根左右
     private void preOrder(Node node) {
         if (node == null) {
             return;
@@ -85,6 +88,7 @@ public class BST<E extends Comparable<E>> {
         inOrder(root);
     }
 
+    // 左根右
     private void inOrder(Node node) {
         if (node == null) {
             return;
@@ -98,6 +102,7 @@ public class BST<E extends Comparable<E>> {
         postOrder(root);
     }
 
+    // 左右根
     private void postOrder(Node node) {
         if (node == null) {
             return;
@@ -140,6 +145,8 @@ public class BST<E extends Comparable<E>> {
         System.out.println(bst.contains(1));
         System.out.println(bst);
         bst.postOrderNR();
+        System.out.println("=========");
+        bst.levelTraversal();
     }
 
     public void preOrderNR() {
@@ -196,6 +203,26 @@ public class BST<E extends Comparable<E>> {
 
         while (!tempResult.isEmpty()) {
             System.out.println(tempResult.pop().e);
+        }
+    }
+
+    // 层序遍历
+    // 借助一个队列
+    // 节点出队列时 将子节点依次入队即可
+    public void levelTraversal() {
+        Queue<Node> queue = new ArrayDeque<>();
+        queue.offer(root);
+        while (!queue.isEmpty()) {
+            Node cur = queue.poll();
+            System.out.println(cur.e);
+
+            if (cur.left != null) {
+                queue.offer(cur.left);
+            }
+
+            if (cur.right != null) {
+                queue.offer(cur.right);
+            }
         }
     }
 
